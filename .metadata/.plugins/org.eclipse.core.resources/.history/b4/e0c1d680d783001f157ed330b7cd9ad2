@@ -1,0 +1,49 @@
+package RestAssuredApiTesting;
+
+import static io.restassured.RestAssured.given;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class UserApiTesting {
+
+
+	@Test
+    public void getAllUsers() {
+        // Set the base URI for the API
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        // Send a GET request to the /users endpoint to fetch all users
+        given()
+            .contentType(ContentType.JSON)   // Set the request content type to JSON
+        .when()
+            .get("/users")                   // Fetch all users
+        .then()
+            .statusCode(200)                 // Validate that the status code is 200 (OK)
+            .log().all();                    // Log the full response to the console
+    }	
+	
+	
+
+    @Test
+    public void loginUser() {
+        // Set the base URI for the API
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        // Login user using POST request
+        given()
+            .contentType(ContentType.JSON)   // Set the content type to JSON
+            .body("{\n" +                       // Correct the body to be a valid JSON string
+                "    \"username\": \"emilys\",\n" +
+                "    \"password\": \"emilyspass\",\n" +
+                "    \"expiresInMins\": 30\n" +
+                "}")                             
+        .when()
+            .post("/auth/login")             // Send a POST request to the /auth/login endpoint
+        .then()
+            .statusCode(200)                 // Validate the status code is 200 (OK)
+            .log().all();                    // Log the entire response
+    }
+}

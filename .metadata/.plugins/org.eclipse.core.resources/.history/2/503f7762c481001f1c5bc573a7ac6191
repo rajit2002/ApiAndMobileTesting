@@ -1,0 +1,64 @@
+package RestAssuredApiTesting;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import static io.restassured.RestAssured.given;
+import org.testng.annotations.Test;
+
+public class CartApiTesting {
+
+	
+	// Get all the carts.
+
+    @Test
+    public void getAllCarts() {
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("/carts")
+        .then()
+            .statusCode(200)
+            .log().all();
+    }
+    
+    //get single cart
+    
+    @Test
+    public void getSingleCart() {
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("/carts/2") // Change "1" to the ID of the cart you want to fetch
+        .then()
+            .statusCode(200)
+            .log().all();
+    }
+    
+    
+    @Test
+    public void getCartsByUser() {
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("/carts/user/5")  // Change "1" to the ID of the user whose carts you want to fetch
+        .then()
+            .statusCode(200)
+            .log().all();
+    }
+    
+  
+
+    
+    
+    
+    
+    
+    
+    
+}

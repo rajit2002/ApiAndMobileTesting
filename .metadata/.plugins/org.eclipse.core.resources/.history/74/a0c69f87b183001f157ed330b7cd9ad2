@@ -1,0 +1,26 @@
+package RestAssuredApiTesting;
+
+import static io.restassured.RestAssured.given;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class UserApiTesting {
+
+
+    @Test
+    public void getAllUsers() {
+        RestAssured.baseURI = "https://dummyjson.com";
+
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("/carts")
+        .then()
+            .statusCode(200)
+            .log().all();
+    }
+	
+}

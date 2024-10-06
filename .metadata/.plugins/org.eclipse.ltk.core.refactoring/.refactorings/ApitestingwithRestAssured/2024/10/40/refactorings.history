@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;CartApiTesting&apos; to &apos;RestAssuredApiTesting&apos;&#x0D;&#x0A;- Original project: &apos;ApitestingwithRestAssured&apos;&#x0D;&#x0A;- Original element: &apos;ApitestingwithRestAssured/src/test/java/CartApiTesting&apos;&#x0D;&#x0A;- Renamed element: &apos;ApitestingwithRestAssured/src/test/java/RestAssuredApiTesting&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;CartApiTesting&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;CartApiTesting" name="RestAssuredApiTesting" qualified="false" references="true" stamp="1727949716378" textual="false" version="1.0"/>
+</session>
