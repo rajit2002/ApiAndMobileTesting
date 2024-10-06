@@ -58,8 +58,8 @@ public class podcastTesting extends cap_podcast {
         // Wait for the change to take effect
         Thread.sleep(8000); // Adjust wait times as needed, consider WebDriverWait for better handling
         
-        // Optional: Implement further actions, such as navigating back or verifying settings
-        System.out.println("Action complete. Optional: Navigate back or verify further settings.");
+      
+        System.out.println("Action complete");
     }
 
     
@@ -85,7 +85,7 @@ public class podcastTesting extends cap_podcast {
         Thread.sleep(3000); 
         //disable
         driver.findElements(MobileBy.className("android.widget.ImageView")).get(4).click();
-        Thread.sleep(3000); // Shorter wait time to allow notifications to load
+        Thread.sleep(3000); 
 
 
         // Step 4: Go back to the home screen
@@ -122,7 +122,7 @@ public class podcastTesting extends cap_podcast {
         driver.pressKey(new KeyEvent(AndroidKey.HOME)); // Press the home button to return to the home screen
         
         // Step 7: Wait after pressing the home button
-        Thread.sleep(3000); // Adjust wait time as necessary
+        Thread.sleep(3000); 
     }
 
 
