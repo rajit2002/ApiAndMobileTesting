@@ -1,0 +1,3 @@
+type= moduel
+import {path} from "/path/path..."
+const path = require("path") //it will have
