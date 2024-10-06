@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-10-06T23:32:18 IST" name="Default suite" finished-at="2024-10-06T23:33:42 IST" duration-ms="84017">
+    <groups>
+    </groups>
+    <test started-at="2024-10-06T23:32:18 IST" name="Default test" finished-at="2024-10-06T23:33:42 IST" duration-ms="84017">
+      <class name="podcast.podcastTesting">
+        <test-method is-config="true" signature="bt()[pri:0, instance:podcast.podcastTesting@6f53b8a]" started-at="2024-10-06T23:32:18 IST" name="bt" finished-at="2024-10-06T23:32:38 IST" duration-ms="19943" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bt -->
+        <test-method signature="openPodcastApp()[pri:1, instance:podcast.podcastTesting@6f53b8a]" started-at="2024-10-06T23:32:38 IST" name="openPodcastApp" finished-at="2024-10-06T23:33:00 IST" duration-ms="22072" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openPodcastApp -->
+        <test-method signature="toggleBatterySaver()[pri:2, instance:podcast.podcastTesting@6f53b8a]" started-at="2024-10-06T23:33:00 IST" name="toggleBatterySaver" finished-at="2024-10-06T23:33:14 IST" duration-ms="13544" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- toggleBatterySaver -->
+        <test-method signature="switchApp()[pri:3, instance:podcast.podcastTesting@6f53b8a]" started-at="2024-10-06T23:33:14 IST" name="switchApp" finished-at="2024-10-06T23:33:42 IST" duration-ms="28268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchApp -->
+      </class> <!-- podcast.podcastTesting -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

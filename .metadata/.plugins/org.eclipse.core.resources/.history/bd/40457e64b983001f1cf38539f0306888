@@ -1,0 +1,68 @@
+package podcast;
+
+import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import Podcast_cap.cap_podcast;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+public class podcastTesting extends cap_podcast {
+
+    public AndroidDriver<AndroidElement> driver;
+    
+    @BeforeTest
+    public void bt() throws MalformedURLException {
+        // Initialize the driver using the desired capabilities from cap_podcast class
+        driver = cap();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  // Set implicit wait for element detection
+    }
+    
+    @Test
+    public void openPodcastApp() throws InterruptedException {
+        // Validate that the app has started
+        System.out.println("Podcast App has been launched.");
+        
+        // Click on the Podcasts tab (adjust as necessary for the UI)
+        driver.findElement(By.id("au.com.shiftyjelly.pocketcasts:id/navigation_podcasts")).click();
+        
+        Thread.sleep(4000);
+        
+        //click on the search icon
+
+        // Enter text into the search box
+        driver.findElement(By.id("au.com.shiftyjelly.pocketcasts:id/search_src_text")).sendKeys(" thetail");
+        
+        Thread.sleep(10000);
+        
+//        driver.pressKey(new KeyEvent())
+        
+ 
+    }
+    
+    @Test
+    
+    public void toggleBatterySaver() throws InterruptedException {
+        // Navigate to the Home screen of the emulator using the new KeyEvent
+      //  driver.pressKey(new KeyEvent(AndroidKey.HOME));  // Press the HOME button
+       // Thread.sleep(3000); // Wait for 3 seconds to ensure the home screen is loaded
+
+        // Open the notifications panel
+        driver.openNotifications();
+        Thread.sleep(5000); // Wait for notifications to fully open
+
+        // Find and click the Battery Saver toggle
+        driver.findElements(MobileBy.className("android.widget.ScrollView")).get(4).click();  // Adjust the index as needed
+        Thread.sleep(3000);  // Wait to observe the change
+        // unclicked
+        driver.findElements(MobileBy.className("android.widget.ScrollView")).get(4).click();  // Adjust the index as needed
+        Thread.sleep(3000);
+    }
+
+}

@@ -1,0 +1,39 @@
+package Podcast_cap;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
+
+public class cap_podcast {
+
+    // This method sets up the desired capability for Appium
+    public static AndroidDriver<AndroidElement> cap() throws MalformedURLException {
+        
+        DesiredCapabilities dc = new DesiredCapabilities();
+        dc.setCapability(MobileCapabilityType.DEVICE_NAME, "CWdevice");
+        dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android"); // Specify the platform as Android
+        // dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "your_android_version"); // Optionally specify Android version
+        
+        // App Package and Activity for Pocket Casts app
+        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "au.com.shiftyjelly.pocketcasts");
+        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "au.com.shiftyjelly.pocketcasts.ui.MainActivity");
+        
+        // Set the newCommandTimeout to prevent session timeout issues
+        dc.setCapability("newCommandTimeout", 900); // Set timeout for 5 minutes
+
+        // Additional capabilities can be added as needed
+        // Example: dc.setCapability(MobileCapabilityType.NO_RESET, true);
+        
+        // Initialize AndroidDriver with Appium server URL and Desired Capabilities
+        @SuppressWarnings("deprecation")
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), dc);
+        
+        return driver;
+    }
+}

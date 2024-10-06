@@ -1,0 +1,101 @@
+package podcast;
+
+import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import Podcast_cap.cap_podcast;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+public class podcastTesting extends cap_podcast {
+
+    public AndroidDriver<AndroidElement> driver;
+
+    @BeforeTest
+    public void bt() throws MalformedURLException {
+        // Initialize the driver using the desired capabilities from cap_podcast class
+        driver = cap();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  // Set implicit wait for element detection
+    }
+
+    @Test
+    public void openPodcastApp() throws InterruptedException {
+        // Validate that the app has started
+        System.out.println("Podcast App has been launched.");
+        
+        // Click on the profile using XPath
+        driver.findElement(By.xpath("(//android.view.ViewGroup[@resource-id='au.com.shiftyjelly.pocketcasts:id/navigation_bar_item_labels_group'])[4]")).click();
+        
+        // Introduce a short wait for the profile page to load
+        Thread.sleep(4000); // Alternatively, use WebDriverWait
+        
+        // Click on the setting button using Accessibility ID
+        
+        
+       driver.findElementByAccessibilityId("Settings").click();
+        
+        Thread.sleep(3000);
+       
+       
+        // Click on the notification  button using Accessibility ID
+        
+        
+        driver.findElementByXPath("//android.widget.ScrollView/android.view.View[3]").click();
+         
+         Thread.sleep(3000);
+        
+        
+        
+       
+        // click on the notify me
+        
+       driver.findElementByXPath("(//android.widget.Switch[@resource-id=\"android:id/switch_widget\"])[1]").click();
+        
+        
+        // Wait after the scroll
+        Thread.sleep(8000);
+        
+           
+        // Optional: Implement further actions, such as navigating back, verifying settings, etc.
+    }
+    
+    @Test(priority = 2)
+    public void switchApp() throws InterruptedException {
+        
+        // Switch to General Store app
+        driver.activateApp("com.androidsample.generalstore");
+        
+        // Wait for the app to load and get the toolbar title text
+        Thread.sleep(15000);
+        
+        
+        String msg = driver.findElement(MobileBy.id("com.androidsample.generalstore:id/toolbar_title")).getText();
+        System.out.println("Copied text: " + msg); // Output copied text
+        
+        // Switch back to the Podcast Player app
+        driver.activateApp("au.com.shiftyjelly.pocketcasts"); // Activate the Podcast Player app
+        
+        // Wait for the app to load
+        Thread.sleep(5000);
+        
+        // Click on the search icon in the Podcast Player app
+        driver.findElement(MobileBy.AccessibilityId("Search")).click();
+        
+        // Wait for the search box to be visible and then input the copied text
+        Thread.sleep(3000);
+        driver.findElement(MobileBy.id("au.com.shiftyjelly.pocketcasts:id/search")).sendKeys(msg); // Enter copied text
+        
+        // Optionally, go back to the home screen
+        driver.pressKey(new KeyEvent(AndroidKey.HOME)); // Press the home button to return to the home screen
+        
+        // Optional wait after pressing the home button
+        Thread.sleep(3000);
+    }
+
+}

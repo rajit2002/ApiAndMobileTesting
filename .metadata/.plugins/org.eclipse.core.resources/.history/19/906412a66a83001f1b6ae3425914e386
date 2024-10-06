@@ -1,0 +1,33 @@
+package AppTesting;
+
+import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import App_cap.maxplayer_cap; // Ensure this is correct
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
+public class podcast extends maxplayer_cap {
+    
+    public AndroidDriver<AndroidElement> driver;
+    
+    @BeforeTest
+    public void bt() throws MalformedURLException {
+        driver = cap();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    }
+    
+    @Test 
+    public void touch() {
+        System.out.println("Touching the MX player");
+        // open the MX player
+        driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+        
+        // click on the song icon (use a valid XPath here)
+        driver.findElement(MobileBy.xpath("//some_xpath_expression")).click();
+    }
+}

@@ -1,0 +1,144 @@
+package AppTesting;
+
+import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import App_cap.maxplayer_cap;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
+public class maxplayer  extends maxplayer_cap{
+	
+	private static final String AndroidKeyCode = null;
+	// Declare driver as a class-level variable
+	
+	public AndroidDriver<AndroidElement> driver;
+	
+	@BeforeTest
+	
+	public void bt() throws MalformedURLException{
+		
+		driver= cap();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	}
+	
+	// Test cases for the Touch mx player app
+	@Test 
+	public void touch() {
+		System.out.println("Touching the MX player");
+		//open the MX player
+		driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+		
+		//click on the song icon
+		driver.findElement(MobileBy.xpath("	driver.findElement(MobileBy.AccessibilityId(\"MX Player\")).click();")).click();
+		
+		
+		
+
+	}
+	
+	// scroll
+	
+	@Test 
+	public void scrolll() { 
+		System.out.println("Scroll functionality test");
+		//open the MX player
+		driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+		
+		//click on the profile icon
+		driver.findElement(MobileBy.id("com.mxtech.videoplayer.ad:id/iv_me")).click();
+		
+		//click on the setting icon
+		driver.findElement(MobileBy.id("com.mxtech.videoplayer.ad:id/settings")).click();
+		
+		//click on the app language
+		
+		driver.findElement(MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[8]/android.widget.RelativeLayout")).click();
+
+		// scroll and go to the last language
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UISelector().scrollable(true)).flingToEnd()"));
+	}
+	
+	
+	//sendkeys
+	
+	
+	@Test 
+	public void sendkeyss() {
+		System.out.println("Scroll functionality test");
+		//open the MX player
+		driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+		
+		// click on the download
+		
+		driver.findElement(MobileBy.id("com.mxtech.videoplayer.ad:id/download_tab")).click();
+	
+		//Send keys to search fields
+		
+		driver.findElement(MobileBy.id("com.mxtech.videoplayer.ad:id/layout_search")).click();
+
+		// search the video
+		driver.findElement(MobileBy.id("com.mxtech.videoplayer.ad:id/et_enter_edit")).sendKeys("Avengers");
+
+		
+		//click on the search button
+		driver.findElement(MobileBy.AccessibilityId("Search")).click();
+		
+	
+		
+	
+			}
+	// test cases for enable and disable battery saver
+	
+	
+	@Test 
+	public void BatterySaver() {
+		System.out.println("Scroll functionality test");
+		//open the MX player
+		driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+		
+		//open the notification bar
+		
+		driver.openNotifications();
+		
+		//Enable battery saver
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Battery saver\")")).click();
+		
+	
+		//disable battery saver
+				driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().text(\"Battery saver\")")).click();
+				
+			}
+	
+	
+	//open the mx player and navigate the home page
+	
+
+	@Test 
+	public void NavigatetheHome() {
+		
+		//open the mx player
+				driver.findElement(MobileBy.AccessibilityId("MX Player")).click();
+				
+				//naviagte the home screen
+				
+				driver.findElement(MobileBy.AccessibilityId("Home")).click();
+				
+				//use back button
+				
+				//driver.pressKeycode(AndroidKeyCode.BACK);
+				
+	}
+			}
+	
+	
+	
+	
+	
+	
+
+
