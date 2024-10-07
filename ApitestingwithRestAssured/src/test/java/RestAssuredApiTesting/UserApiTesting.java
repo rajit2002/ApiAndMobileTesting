@@ -24,7 +24,7 @@ public class UserApiTesting {
             .get("/users")                   // Fetch all users
         .then()
             .statusCode(200)                 // Validate that the status code is 200 (OK)
-            .log().all();                    // Log the full response to the console
+            .log().all();                  
     }	
 	
 	
@@ -83,7 +83,7 @@ public class UserApiTesting {
         .then()
             .statusCode(200)     // Ensure the request was successful
             .log().all()   ;      // Log the response
-           // .body("username", equalTo("emilys"));  // Validate that the username matches
+       
     }
 
     @Test
@@ -143,8 +143,8 @@ public class UserApiTesting {
             .get("/users/filter")       // Send GET request to /users/filter
         .then()
             .statusCode(200)            // Validate that the status code is 200 (OK)
-            .log().all() ;                // Log the full response
-             // Ensure that at least one user matches the filter
+            .log().all() ;               
+            
     }
     @Test
     public void limitAndSkipUsers() {
@@ -164,7 +164,7 @@ public class UserApiTesting {
             .get("/users")                  // Send GET request to /users endpoint
         .then()
             .statusCode(200)                // Validate that the status code is 200 (OK)
-            .log().all();                   // Log the full response
+            .log().all();                 
     }
     
     @Test
@@ -187,7 +187,7 @@ public class UserApiTesting {
             .put("/users/" + userId)          // Send a PUT request to the specified user ID
         .then()
             .statusCode(200)                  // Validate that the status code is 200 (OK)
-            .log().all();                     // Log the full response
+            .log().all();                  
     }
     @Test
     public void deleteUser() {
